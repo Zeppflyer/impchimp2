@@ -2,16 +2,25 @@
 
 
 <% @pizzas.each do |pizza| %>
+
+<% latter=pizza.lat-140 %>
+
 	<div class="stolen-frosty span1 offset 3 text-center">
 	<h1 class="stolen-h1">
 	<%= pizza.name %>
 </h1>
 	<h2>
+		
+
 	<%= pizza.lat %>
 	</h2>
 	<h2>
 	<%= pizza.lng %>
 </h2>
+
+	<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?zoom=13&size=600x300&maptype=roadmap
+&markers=color:blue%7Clabel:S%7C#{latter},#{pizza.lng}
+&markers=color:red%7Ccolor:red%7Clabel:C%7C40.718217,-73.998284&sensor=false" %>
 	<br/>
 </div>
 <%end%>
